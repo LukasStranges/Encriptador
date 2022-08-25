@@ -1,13 +1,13 @@
 const texto_entrada = document.querySelector('#txte')
 const texto_saida = document.getElementById('txts')
 const criptografar = document.getElementById('criptografar')
-const descriptografar = document.getElementById('descriptografar');
+const descriptografar = document.getElementById('descriptografar')
 const copiar = document.getElementById('copiar')
 //******************************************************************** */
 
 texto_entrada.addEventListener("keypress", function(letra){//Criar o evento e depois criar a verificação das letras
     if(!checkCaractere(letra)){
-        letra.preventDefault();
+        letra.preventDefault()
     }
 })
 criptografar.addEventListener('click', function(){
@@ -32,7 +32,7 @@ criptografar.addEventListener('click', function(){
         }
     }
     limparsaida() 
-    texto_saida.value = textoParaCrip.join("");
+    texto_saida.value = textoParaCrip.join("")
 })
 
 descriptografar.addEventListener("click", function(){//Criar o evento e depois criar a verificação das letras
@@ -50,9 +50,9 @@ descriptografar.addEventListener("click", function(){//Criar o evento e depois c
 copiar.addEventListener('click', function(){
     const texto_entrada = document.querySelector('#txte').value=''
     //**********************************/
-    let textocopiado = document.getElementById("txts");
-    textocopiado.select();
-    textocopiado.setSelectionRange(0, 99999);
+    let textocopiado = document.getElementById("txts")
+    textocopiado.select()
+    textocopiado.setSelectionRange(0, 99999)
     navigator.clipboard.writeText(textocopiado.value)
     //**********************************/
     const sair = document.getElementById('back-saida')
@@ -63,14 +63,12 @@ copiar.addEventListener('click', function(){
 
 function checkCaractere(letra){//Verificação das letras
     const carac = String.fromCharCode(letra.keyCode)
-
-    const pattern = '[a-z- ]'
-
-    if(carac.match(pattern)){
-        return true
-    }else{
-        return alert("[ERRO] Apenas letras minusculas e sem acento")
+    const pattern = new RegExp('[a-z- ]')
+    const bool = pattern.test(carac)
+    if(!bool) {
+        alert("[ERRO] Apenas letras minusculas e sem acento")
     }
+    return bool
 }
 
 
