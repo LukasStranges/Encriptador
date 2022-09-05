@@ -14,7 +14,7 @@ criptografar.addEventListener('click', function(){
     let textoEntrada = texto_entrada.value
     let textoParaCrip = textoEntrada.split("")
     
-    if(textoEntrada == ''){
+    if(textoEntrada.length == 0){
         alert("Erro! Campo vazio")
     }else{
         for(let i = 0; i <= textoParaCrip.length;i++){
