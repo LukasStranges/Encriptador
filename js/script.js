@@ -13,26 +13,30 @@ texto_entrada.addEventListener("keypress", function(letra){//Criar o evento e de
 criptografar.addEventListener('click', function(){
     let textoEntrada = texto_entrada.value
     let textoParaCrip = textoEntrada.split("")
-
-    for(let i = 0; i <= textoParaCrip.length;i++){
-        if(textoParaCrip[i] == "a"){
-            textoParaCrip[i] = 'enter'
+    
+    if(textoEntrada == ''){
+        alert("Erro! Campo vazio")
+    }else{
+        for(let i = 0; i <= textoParaCrip.length;i++){
+            if(textoParaCrip[i] == "a"){
+                textoParaCrip[i] = 'enter'
+            }
+            if(textoParaCrip[i] == "e"){
+                textoParaCrip[i] = 'imes'
+            }
+            if(textoParaCrip[i] == "i"){
+                textoParaCrip[i] = 'ai'
+            }
+            if(textoParaCrip[i] == "o"){
+                textoParaCrip[i] = 'ober'
+            }
+            if(textoParaCrip[i] == "u"){
+                textoParaCrip[i] = 'ufat'
+            }
         }
-        if(textoParaCrip[i] == "e"){
-            textoParaCrip[i] = 'imes'
-        }
-        if(textoParaCrip[i] == "i"){
-            textoParaCrip[i] = 'ai'
-        }
-        if(textoParaCrip[i] == "o"){
-            textoParaCrip[i] = 'ober'
-        }
-        if(textoParaCrip[i] == "u"){
-            textoParaCrip[i] = 'ufat'
-        }
-    }
-    limparsaida() 
-    texto_saida.value = textoParaCrip.join("")
+        limparsaida() 
+        texto_saida.value = textoParaCrip.join("")
+   }
 })
 
 descriptografar.addEventListener("click", function(){//Criar o evento e depois criar a verificação das letras
