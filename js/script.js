@@ -10,13 +10,13 @@ texto_entrada.addEventListener("keypress", function(letra){//Criar o evento e de
         letra.preventDefault()
     }
 })
-criptografar.addEventListener('click', function(){
-    let textoEntrada = texto_entrada.value
-    let textoParaCrip = textoEntrada.split("")
-    
-    if(textoEntrada.length == 0){
-        alert("Erro! Campo vazio")
-    }else{
+if(texto_entrada.value.length === 0){
+    alert("Erro! Campo Vazio")
+}else{
+    criptografar.addEventListener('click', function(){
+        let textoEntrada = texto_entrada.value
+        let textoParaCrip = textoEntrada.split("")
+
         for(let i = 0; i <= textoParaCrip.length;i++){
             if(textoParaCrip[i] == "a"){
                 textoParaCrip[i] = 'enter'
@@ -36,20 +36,20 @@ criptografar.addEventListener('click', function(){
         }
         limparsaida() 
         texto_saida.value = textoParaCrip.join("")
-   }
-})
+    })
 
-descriptografar.addEventListener("click", function(){//Criar o evento e depois criar a verificação das letras
-    textoEntrada = texto_entrada.value
+    descriptografar.addEventListener("click", function(){//Criar o evento e depois criar a verificação das letras
+        textoEntrada = texto_entrada.value
 
-    textoEntrada = textoEntrada.replace(/enter/g,'a')
-    textoEntrada = textoEntrada.replace(/imes/g,'e')
-    textoEntrada = textoEntrada.replace(/ai/g,'i')
-    textoEntrada = textoEntrada.replace(/ober/g,'o')
-    textoEntrada = textoEntrada.replace(/ufat/g,'u')
-    limparsaida()
-    texto_saida.value = textoEntrada
-})
+        textoEntrada = textoEntrada.replace(/enter/g,'a')
+        textoEntrada = textoEntrada.replace(/imes/g,'e')
+        textoEntrada = textoEntrada.replace(/ai/g,'i')
+        textoEntrada = textoEntrada.replace(/ober/g,'o')
+        textoEntrada = textoEntrada.replace(/ufat/g,'u')
+        limparsaida()
+        texto_saida.value = textoEntrada
+    })
+}
 
 copiar.addEventListener('click', function(){
     const texto_entrada = document.querySelector('#txte').value=''
